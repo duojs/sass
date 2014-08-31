@@ -1,0 +1,31 @@
+{
+  "name": "duosass",
+  "version": "1.0.0",
+  "description": "Sass plugin for Duo",
+  "license": "MIT",
+  "repository": "duojs/sass",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "css",
+    "duo",
+    "duoplugin",
+    "sass"
+  ],
+  "dependencies": {
+    "debug": "^1.0.4",
+    "node-sass": "^0.9.3",
+    "object-assign": "^1.0.0"
+  },
+  "devDependencies": {
+    "ava": "0.0.4",
+    "duo": "^0.8.2"
+  }
+}
