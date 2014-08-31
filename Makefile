@@ -9,7 +9,7 @@ node_modules: package.json
 	@touch $@
 
 %.css: %.scss
-	@./node_modules/.bin/node-sass $< $@
+	@./node_modules/.bin/duo --use index.js $< > $@
 
 clean:
 	@rm -rf test/fixtures/**/components
