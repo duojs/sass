@@ -24,21 +24,3 @@ test('should transpile sass to css', function (t) {
     });
   });
 });
-
-test('should resolve imports', function (t) {
-  t.plan(3);
-
-  var root = fixture('import');
-  var duo = new Duo(root)
-    .entry('index.scss')
-    .use(sass());
-
-  duo.run(function (err, a) {
-    t.assert(!err);
-
-    read(path.join(root, 'index.css'), 'utf8', function (err, b) {
-      t.assert(!err);
-      t.assert(a === b);
-    });
-  });
-});
