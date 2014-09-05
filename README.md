@@ -5,7 +5,7 @@
 ## Install
 
 ```sh
-$ npm install --save duosass
+$ npm install duosass
 ```
 
 ## Usage
@@ -13,7 +13,7 @@ $ npm install --save duosass
 From the CLI:
 
 ```sh
-$ duo --use duosass
+$ duo --use duosass input.scss output.css
 ```
 
 Using the API:
