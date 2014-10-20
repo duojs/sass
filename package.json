@@ -21,7 +21,7 @@
   ],
   "dependencies": {
     "debug": "^1.0.4",
-    "node-sass": "^0.9.3",
+    "node-sass": "^1.0.1",
     "object-assign": "^1.0.0"
   },
   "devDependencies": {
