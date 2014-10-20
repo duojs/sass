@@ -18,7 +18,25 @@ test('should transpile sass to css', function (t) {
   duo.run(function (err, a) {
     t.assert(!err);
 
-    read(path.join(root, 'index.css'), 'utf8', function (err, b) {
+    read(path.join(root, 'expected.css'), 'utf8', function (err, b) {
+      t.assert(!err);
+      t.assert(a === b);
+    });
+  });
+});
+
+test('should transpile sass to css using indented syntax', function (t) {
+  t.plan(3);
+
+  var root = fixture('indented');
+  var duo = new Duo(root)
+    .entry('index.sass')
+    .use(sass());
+
+  duo.run(function (err, a) {
+    t.assert(!err);
+
+    read(path.join(root, 'expected.css'), 'utf8', function (err, b) {
       t.assert(!err);
       t.assert(a === b);
     });

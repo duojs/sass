@@ -16,13 +16,17 @@ module.exports = function (opts) {
   opts = opts || {};
 
   return function (file) {
-    if (file.type !== 'scss') {
+    if (file.type !== 'scss' && file.type !== 'sass') {
       return;
     }
 
     debug('compiling %s to css', file.id);
 
-    file.src = sass(assign(opts, { data: file.src }));
+    file.src = sass(assign(opts, {
+      data: file.src,
+      indentedSyntax: file.type === 'sass'
+    }));
+
     file.type = 'css';
   };
 };
