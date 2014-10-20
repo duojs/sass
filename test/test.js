@@ -16,10 +16,10 @@ test('should transpile sass to css', function (t) {
     .use(sass());
 
   duo.run(function (err, a) {
-    t.assert(!err);
+    t.assert(!err, err);
 
     read(path.join(root, 'expected.css'), 'utf8', function (err, b) {
-      t.assert(!err);
+      t.assert(!err, err);
       t.assert(a === b);
     });
   });
@@ -34,10 +34,10 @@ test('should transpile sass to css using indented syntax', function (t) {
     .use(sass());
 
   duo.run(function (err, a) {
-    t.assert(!err);
+    t.assert(!err, err);
 
     read(path.join(root, 'expected.css'), 'utf8', function (err, b) {
-      t.assert(!err);
+      t.assert(!err, err);
       t.assert(a === b);
     });
   });
