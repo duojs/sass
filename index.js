@@ -22,8 +22,8 @@ module.exports = function (opts) {
 
     debug('compiling %s to css', file.id);
 
-    var imports = file.src.match(/@import[^;]*;/) || [];
-    file.src = file.src.replace(/@import[^;]*;/, '');
+    var imports = file.src.match(/@import[^;]*;/g) || [];
+    file.src = file.src.replace(/@import[^;]*;/g, '');
     var sass_syntax = (file.type === 'sass') ? true : false;
 
     file.src = sass(assign(opts, {data: file.src, indentedSyntax: sass_syntax}));
