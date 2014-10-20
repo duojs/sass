@@ -16,13 +16,20 @@ module.exports = function (opts) {
   opts = opts || {};
 
   return function (file) {
-    if (file.type !== 'scss') {
+    if (file.type !== 'scss' && file.type !== 'sass') {
       return;
     }
 
     debug('compiling %s to css', file.id);
 
-    file.src = sass(assign(opts, { data: file.src }));
+    var imports = file.src.match(/@import[^;]*;/g) || [];
+    file.src = file.src.replace(/@import[^;]*;/g, '');
+    var sass_syntax = (file.type === 'sass') ? true : false;
+
+    file.src = sass(assign(opts, {data: file.src, indentedSyntax: sass_syntax}));
+    for (var i=0;i<imports.length;i++) {
+      file.src = imports[i] + file.src;
+    }
     file.type = 'css';
   };
 };
