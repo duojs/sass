@@ -22,11 +22,20 @@ module.exports = function (opts) {
 
     debug('compiling %s to css', file.id);
 
+    var imports = file.src.match(/@import[^;]*;/gi) || [];
+    var src = '';
+
+    file.src = file.src.replace(/@import[^;]*;/gi, '');
     file.src = sass(assign(opts, {
       data: file.src,
       indentedSyntax: file.type === 'sass'
     }));
 
+    imports.forEach(function (file) {
+      src += file;
+    });
+
+    file.src = src + file.src;
     file.type = 'css';
   };
 };

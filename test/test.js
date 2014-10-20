@@ -42,3 +42,21 @@ test('should transpile sass to css using indented syntax', function (t) {
     });
   });
 });
+
+test('should transpile sass with imports to css', function (t) {
+  t.plan(3);
+
+  var root = fixture('import');
+  var duo = new Duo(root)
+    .entry('index.scss')
+    .use(sass());
+
+  duo.run(function (err, a) {
+    t.assert(!err, err);
+
+    read(path.join(root, 'expected.css'), 'utf8', function (err, b) {
+      t.assert(!err, err);
+      t.assert(a === b);
+    });
+  });
+});
