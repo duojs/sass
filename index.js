@@ -26,10 +26,10 @@ module.exports = function (opts) {
     var src = '';
 
     file.src = file.src.replace(/@import[^;]*;/gi, '');
-    file.src = sass(assign(opts, {
+    file.src = sass(assign({
       data: file.src,
       indentedSyntax: file.type === 'sass'
-    }));
+    }, opts));
 
     imports.forEach(function (file) {
       src += file;
