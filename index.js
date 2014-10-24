@@ -22,10 +22,10 @@ module.exports = function (opts) {
 
     debug('compiling %s to css', file.id);
 
-    var imports = file.src.match(/@import[^;]*;/gi) || [];
+    var imports = file.src.match(/^@import[^;]*;/gim) || [];
     var src = '';
 
-    file.src = file.src.replace(/@import[^;]*;/gi, '');
+    file.src = file.src.replace(/^@import[^;]*;/gim, '');
     file.src = sass(assign({
       data: file.src,
       indentedSyntax: file.type === 'sass'
