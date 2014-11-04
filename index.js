@@ -28,7 +28,6 @@ module.exports = function (opts) {
       indentedSyntax: file.type === 'sass'
     }, opts));
 
-    file.src = file.src;
     file.type = 'css';
   };
 };
