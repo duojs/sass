@@ -1,4 +1,6 @@
-@import './foo.sass';
+$red: #ff0000;
+
+@import 'foo.sass';
 
 body {
   div {

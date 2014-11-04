@@ -22,20 +22,13 @@ module.exports = function (opts) {
 
     debug('compiling %s to css', file.id);
 
-    var imports = file.src.match(/^@import[^;]*;/gim) || [];
-    var src = '';
-
-    file.src = file.src.replace(/^@import[^;]*;/gim, '');
     file.src = sass(assign({
       data: file.src,
+      includePaths: [file.root],
       indentedSyntax: file.type === 'sass'
     }, opts));
 
-    imports.forEach(function (file) {
-      src += file;
-    });
-
-    file.src = src + file.src;
+    file.src = file.src;
     file.type = 'css';
   };
 };
