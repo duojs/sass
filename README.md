@@ -5,7 +5,7 @@
 ## Install
 
 ```sh
-$ npm install duosass
+$ npm install duo-sass
 ```
 
 ## Usage
@@ -13,14 +13,14 @@ $ npm install duosass
 From the CLI:
 
 ```sh
-$ duo --use duosass input.scss output.css
+$ duo --use duo-sass input.scss output.css
 ```
 
 Using the API:
 
 ```js
 var Duo = require('duo');
-var sass = require('duosass');
+var sass = require('duo-sass');
 
 var duo = Duo(__dirname)
   .entry('index.scss')
