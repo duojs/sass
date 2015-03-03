@@ -14,12 +14,13 @@ module.exports = function (opts) {
 
 		debug('compiling %s to css', file.id);
 
-		file.src = sass(assign({
+		var result = sass(assign({
 			data: file.src,
 			includePaths: [file.root],
 			indentedSyntax: file.type === 'sass'
 		}, opts));
 
+		file.src = result.css;
 		file.type = 'css';
 	};
 };
