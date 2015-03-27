@@ -18,7 +18,8 @@ module.exports = function (opts) {
 		var imports = parseImport(file.src).filter(function (imprt) {
 			return imprt.path.indexOf('.') !== 0;
 		}).map(function (imprt) {
-			file.src = file.src.replace(imprt, '');
+			imprt.rule = imprt.rule + ';';
+			file.src = file.src.replace(imprt.rule, '');
 			return imprt.rule;
 		});
 
