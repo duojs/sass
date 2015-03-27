@@ -21,11 +21,13 @@
   ],
   "dependencies": {
     "debug": "^2.1.0",
+    "get-imports": "^1.0.0",
     "node-sass": "2.0.1",
-    "object-assign": "^2.0.0"
+    "object-assign": "^2.0.0",
+    "parse-import": "^2.0.0"
   },
   "devDependencies": {
     "ava": "^0.0.4",
-    "duo": "^0.9.4"
+    "duo": "^0.10.0"
   }
 }
