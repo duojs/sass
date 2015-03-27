@@ -18,7 +18,7 @@ test('should transpile sass to css', function (t) {
 
 	duo.run(function (err, css) {
 		t.assert(!err, err);
-		t.assert(css === expected);
+		t.assert(css.code === expected);
 	});
 });
 
@@ -33,7 +33,7 @@ test('should transpile sass to css using indented syntax', function (t) {
 
 	duo.run(function (err, css) {
 		t.assert(!err, err);
-		t.assert(css === expected);
+		t.assert(css.code === expected);
 	});
 });
 
@@ -48,6 +48,21 @@ test('should transpile sass with imports to css', function (t) {
 
 	duo.run(function (err, css) {
 		t.assert(!err, err);
-		t.assert(css === expected);
+		t.assert(css.code === expected);
+	});
+});
+
+test('should transpile sass with remote imports to css', function (t) {
+	t.plan(2);
+
+	var root = fixture('remote');
+	var expected = read(fixture('remote/expected.css'), 'utf8');
+	var duo = new Duo(root)
+		.entry('index.scss')
+		.use(sass());
+
+	duo.run(function (err, css) {
+		t.assert(!err, err);
+		t.assert(css.code === expected);
 	});
 });
