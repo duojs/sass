@@ -22,7 +22,7 @@
   "dependencies": {
     "debug": "^2.1.0",
     "get-imports": "^1.0.0",
-    "node-sass": "3.0.0-beta.4",
+    "node-sass": "^2.1.1",
     "object-assign": "^2.0.0",
     "parse-import": "^2.0.0"
   },
